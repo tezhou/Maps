@@ -67,7 +67,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.getUiSettings().setZoomControlsEnabled(true);
         LocationListener locationListener = new LocationListener(){
-            public void onLocationChanged(Location location){
+            public void onLocationChanged(Location location)
+            {
+                mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("update path"));
             }
             public void onStatusChanged(String provider, int status, Bundle extras){}
